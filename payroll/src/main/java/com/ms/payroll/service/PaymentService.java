@@ -17,7 +17,7 @@ public class PaymentService {
 //	private String hostWorker;
 	
 	@Autowired
-	private WorkerFeignClients workerClients;
+	private WorkerFeignClients workerFeignClients;
 	
 	public Payment getPayment(Long workerId, int days) {
 //		Map<String, String> uriVariable = new HashMap<>();
@@ -25,7 +25,7 @@ public class PaymentService {
 //		
 //		Worker worker = restTemplate.getForObject(hostWorker + "worker/{id}", Worker.class, uriVariable);
 		
-		Worker worker = workerClients.findId(workerId).getBody();
+		Worker worker = workerFeignClients.findId(workerId).getBody();
 		return new Payment(worker.getName(), worker.getDailyIncome(), days);
 	}
 }
