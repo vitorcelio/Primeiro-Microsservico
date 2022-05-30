@@ -19,7 +19,7 @@ public class PaymentService {
 	@Autowired
 	private WorkerFeignClients workerFeignClients;
 	
-	public Payment getPayment(Long workerId, int days) {
+	public Payment getPayment(Long workerId, Integer days) {
 //		Map<String, String> uriVariable = new HashMap<>();
 //		uriVariable.put("id", workerId.toString());
 //		
