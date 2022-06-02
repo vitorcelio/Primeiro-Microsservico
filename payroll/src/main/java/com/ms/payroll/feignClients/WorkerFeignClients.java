@@ -6,10 +6,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.ms.payroll.config.WorkerConfiguration;
 import com.ms.payroll.model.Worker;
 
 @Component
-@FeignClient(name = "worker", path = "/worker")
+@FeignClient(name = "worker", path = "/worker", configuration = WorkerConfiguration.class)
 public interface WorkerFeignClients {
 	
 	@GetMapping("{id}")
